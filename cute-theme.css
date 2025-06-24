@@ -1,0 +1,153 @@
+/* ===== 可爱风格主题 - EPhone 设置界面 ===== */
+:root {
+  --primary-color: #ff9bb3; /* 主色调：樱花粉 */
+  --secondary-color: #ffd6e0; /* 次色调：浅粉 */
+  --text-color: #5a3a4a; /* 文字深粉色 */
+  --bg-color: #fff5f7; /* 背景：淡粉白 */
+  --border-radius: 16px; /* 圆角 */
+}
+
+/* 全局样式 */
+body {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 15px;
+  margin: 0;
+}
+
+/* 标题 */
+h1, h2, h3 {
+  color: #ff6b8b; /* 标题粉红色 */
+  text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.3);
+  margin: 0.5em 0;
+}
+
+h1 {
+  border-bottom: 2px dashed var(--primary-color);
+  padding-bottom: 8px;
+}
+
+/* 开关按钮 */
+input[type="checkbox"] {
+  appearance: none;
+  width: 50px;
+  height: 26px;
+  background: #ffd6e0;
+  border-radius: 13px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+  margin: 0 8px 0 0;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--primary-color);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked::before {
+  left: calc(100% - 24px);
+}
+
+/* 普通按钮 */
+button, input[type="button"] {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 3px 0 #e75480;
+  transition: all 0.2s ease;
+  margin: 5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+button:hover {
+  background: #ff7a95;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #e75480;
+}
+
+/* 输入框 */
+input[type="text"], 
+input[type="url"] {
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: 8px 12px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.7);
+  transition: border 0.3s ease;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* 分隔线 */
+hr {
+  border: 1px dashed var(--primary-color);
+  margin: 20px 0;
+}
+
+/* 卡片式区块 */
+h2, h3 {
+  background: linear-gradient(to right, #ffd6e0, white);
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(255, 155, 179, 0.1);
+  margin: 15px 0;
+}
+
+/* 加载动画 */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+button:hover, 
+input[type="checkbox"] {
+  animation: float 1.5s infinite ease-in-out;
+}
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+  :root {
+    --border-radius: 12px;
+  }
+  
+  body {
+    padding: 10px;
+  }
+  
+  input[type="text"],
+  input[type="url"] {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  button, input[type="button"] {
+    padding: 10px;
+    width: 100%;
+  }
+}
